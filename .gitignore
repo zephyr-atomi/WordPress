@@ -1,0 +1,7 @@
+.idea
+wp-content/uploads
+
+# 下面配置属于对每个服务器定制的，所以不应该放在git里面。
+.htaccess
+wp-config.php
+
