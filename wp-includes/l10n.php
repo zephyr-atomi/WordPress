@@ -312,6 +312,7 @@ function __( $text, $domain = 'default' ) {
  * @return string Translated text on success, original text on failure.
  */
 function esc_attr__( $text, $domain = 'default' ) {
+	error_log("xfguo: text is $text and domain is $domain");
 	return esc_attr( translate( $text, $domain ) );
 }
 
