@@ -8465,3 +8465,19 @@ function is_php_version_compatible( $required ) {
 function wp_fuzzy_number_match( $expected, $actual, $precision = 1 ) {
 	return abs( (float) $expected - (float) $actual ) <= $precision;
 }
+
+if ( ! function_exists( 'log_call_stack' ) ) {
+	function log_call_stack() {
+		// Capture the backtrace.
+		$backtrace = debug_backtrace();
+
+		// Convert it to a readable string.
+		$backtrace_str = "";
+		foreach($backtrace as $bt) {
+			$backtrace_str .= $bt['function'] . ' at ' . (isset($bt['file']) ? $bt['file'] : '') . ':' . (isset($bt['line']) ? $bt['line'] : '') . "\n";
+		}
+
+		// Log it.
+		error_log($backtrace_str);
+	}
+}
