@@ -32,6 +32,9 @@ class Email_Sender {
 	 * @return bool success True if the email was sent.
 	 */
 	public function send( $to, $subject, $message, $headers, $attachments ): bool {
+		error_log("xfguo: Send email to '$to'");
+		error_log( 'Subject: ' . var_export( $subject, true ) );
+		log_call_stack();
 		// @todo @bordoni @moraleida: Update this to Pigeon when it's ready.
 		return wp_mail( $to, wp_specialchars_decode( $subject ), $message, $headers, $attachments );
 	}
